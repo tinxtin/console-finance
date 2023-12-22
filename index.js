@@ -97,3 +97,9 @@ for (var i = 0; i < finances.length; i++) {
   total_amount += finances[i][1];
 }
 console.log(total_amount)
+
+var total_difference = 0;
+for (var i = 0; i < finances.length - 1; i++) {
+  total_difference += finances[i+1][1] - finances[i][1];
+}
+console.log(total_difference/(total_months - 1))
