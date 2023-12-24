@@ -103,3 +103,19 @@ for (var i = 0; i < finances.length - 1; i++) {
   total_difference += finances[i+1][1] - finances[i][1];
 }
 console.log(total_difference/(total_months - 1))
+
+var list_diff = []
+for (var i = 0; i < finances.length - 1; i++) {
+  list_diff.push(finances[i+1][1] - finances[i][1]);
+}
+var max_increase = (Math.max(...list_diff))
+var min_decrease = (Math.min(...list_diff))
+
+for (var i = 0; i < finances.length - 1; i++) {
+  if (max_increase === finances[i+1][1] - finances[i][1]) {
+    var max_month = finances[i+1][0]
+  }
+  if (min_decrease === finances[i+1][1] - finances[i][1]) {
+    var min_month = finances[i+1][0]
+  }
+}
