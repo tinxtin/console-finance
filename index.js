@@ -88,36 +88,41 @@ var finances = [
   ['Feb-2017', 671099],
 ];
 
-
+// total number of months in the dataset.
 var total_months = finances.length;
 
+// total amount of profit/losses over the entire period.
 var total_amount = 0;
 for (var i = 0; i < finances.length; i++) {
   total_amount += finances[i][1];
 }
 
+// finds the average changes in profit/losses over the entire period.
 var total_difference = 0;
 for (var i = 0; i < finances.length - 1; i++) {
   total_difference += finances[i+1][1] - finances[i][1];
 }
 var avg_change = (total_difference/(total_months - 1)).toFixed(2)
 
+// finds the highest profit and losses over the entire period.
 var list_diff = []
 for (var i = 0; i < finances.length - 1; i++) {
   list_diff.push(finances[i+1][1] - finances[i][1]);
 }
-var max_increase = (Math.max(...list_diff))
-var min_decrease = (Math.min(...list_diff))
+var profit = (Math.max(...list_diff))
+var losses = (Math.min(...list_diff))
 
+// finds the months corrosponding to highest profit and losses. 
 for (var i = 0; i < finances.length - 1; i++) {
-  if (max_increase === finances[i+1][1] - finances[i][1]) {
+  if (profit === finances[i+1][1] - finances[i][1]) {
     var max_month = finances[i+1][0]
   }
-  if (min_decrease === finances[i+1][1] - finances[i][1]) {
+  if (losses === finances[i+1][1] - finances[i][1]) {
     var min_month = finances[i+1][0]
   }
 }
 
+// displays the information to the console.
 console.log(
   `
   Finanacial Analysis
@@ -125,7 +130,7 @@ console.log(
   Total Months: ${total_months}
   Total: ${total_amount}
   Average Change: ${avg_change}
-  Greatest Increase in Profits/Losses: ${max_month} (${max_increase})
-  Greatest Decrease in Profits/Losses: ${min_month} (${min_decrease})
+  Greatest Increase in Profits/Losses: ${max_month} (${profit})
+  Greatest Decrease in Profits/Losses: ${min_month} (${losses})
   `
 )
