@@ -90,19 +90,17 @@ var finances = [
 
 
 var total_months = finances.length;
-console.log(total_months)
 
 var total_amount = 0;
 for (var i = 0; i < finances.length; i++) {
   total_amount += finances[i][1];
 }
-console.log(total_amount)
 
 var total_difference = 0;
 for (var i = 0; i < finances.length - 1; i++) {
   total_difference += finances[i+1][1] - finances[i][1];
 }
-console.log(total_difference/(total_months - 1))
+var avg_change = (total_difference/(total_months - 1)).toFixed(2)
 
 var list_diff = []
 for (var i = 0; i < finances.length - 1; i++) {
@@ -119,3 +117,15 @@ for (var i = 0; i < finances.length - 1; i++) {
     var min_month = finances[i+1][0]
   }
 }
+
+console.log(
+  `
+  Finanacial Analysis
+  --------------------
+  Total Months: ${total_months}
+  Total: ${total_amount}
+  Average Change: ${avg_change}
+  Greatest Increase in Profits/Losses: ${max_month} (${max_increase})
+  Greatest Decrease in Profits/Losses: ${min_month} (${min_decrease})
+  `
+)
