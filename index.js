@@ -128,9 +128,9 @@ console.log(
   Finanacial Analysis
   --------------------
   Total Months: ${total_months}
-  Total: ${total_amount}
+  Total: $${total_amount}
   Average Change: ${avg_change}
-  Greatest Increase in Profits/Losses: ${max_month} (${profit})
-  Greatest Decrease in Profits/Losses: ${min_month} (${losses})
+  Greatest Increase in Profits/Losses: ${max_month} ($${profit})
+  Greatest Decrease in Profits/Losses: ${min_month} ($${losses})
   `
 )
